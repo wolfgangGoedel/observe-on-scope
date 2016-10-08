@@ -14,5 +14,10 @@
     "angular"
   ],
   "author": "Wolfgang Goedel",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rx": "^4.1.0",
+    "rxjs": "^5.0.0-beta.12",
+    "typescript": "^2.0.3"
+  }
 }
