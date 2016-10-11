@@ -4,7 +4,8 @@
   "description": "utility lib for using RxJS with angular1",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:rx4:es6": "tsc src/rxjs4/index.ts",
+    "test": "mocha --opts mocha.opts --watch"
   },
   "keywords": [
     "rx",
@@ -16,8 +17,25 @@
   "author": "Wolfgang Goedel",
   "license": "MIT",
   "devDependencies": {
+    "@types/angular": "^1.5.16",
+    "@types/angular-mocks": "^1.5.5",
+    "@types/chai": "^3.4.34",
+    "@types/jsdom": "^2.0.29",
+    "@types/mocha": "^2.2.32",
+    "@types/rx": "^2.5.33",
+    "@types/sinon": "^1.16.31",
+    "angular-mocks": "^1.5.8",
+    "chai": "^3.5.0",
+    "jsdom": "^9.6.0",
+    "mocha": "^3.1.0",
+    "rollup": "^0.36.1",
     "rx": "^4.1.0",
     "rxjs": "^5.0.0-beta.12",
+    "sinon": "^1.17.6",
+    "ts-node": "^1.4.1",
     "typescript": "^2.0.3"
+  },
+  "dependencies": {
+    "angular": "^1.5.8"
   }
 }

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "outDir": "./dist",
+    "declaration": true,
+    "sourceMap": true,
+    "types": [
+      "mocha",
+      "angular"
+    ],
+    "baseUrl": "node_modules",
+    "paths": {
+      "rx": ["rx/rx", "rx/ts/rx"]
+    },
+    "lib": [
+      "dom",
+      "es2016"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

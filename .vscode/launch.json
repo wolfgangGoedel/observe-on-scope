@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "request": "launch",
+      "name": "Debug Mocha Test",
+      "type": "node",
+      // Notice, we bypass the launcher and start the test runner directly
+      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+      "stopOnEntry": false,
+      // run the tests in the test folder
+      "args": [
+        "--opts", "mocha.opts"
+      ],
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": null,
+      "env": {},
+      "sourceMaps": true
+    }
+  ]
+}
