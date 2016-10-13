@@ -22,3 +22,7 @@ void Object.assign(global, {
   navigator,
   Node
 });
+
+delete require.cache[require.resolve('angular')];
+delete require.cache[require.resolve('angular/angular')];
+delete require.cache[require.resolve('angular-mocks')];
