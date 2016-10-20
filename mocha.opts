@@ -1,3 +1,5 @@
+--require jsdom-global/register
+--requireX ./test/registerAngular.js
 --require ts-node/register
 --watch-extensions ts
 test/**/*.spec.ts

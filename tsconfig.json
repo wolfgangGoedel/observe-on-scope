@@ -10,7 +10,9 @@
     "sourceMap": true,
     "types": [
       "mocha",
-      "angular"
+      "angular",
+      "angular-mocks",
+      "node"
     ],
     "baseUrl": "node_modules",
     "paths": {

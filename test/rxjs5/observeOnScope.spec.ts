@@ -1,25 +1,33 @@
-import { IScope } from 'angular';
+import { IScope, IRootScopeService, ITimeoutService } from 'angular';
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import { Observable } from 'rxjs';
-
-import '../setupDom';
-import '../setupAngular';
+import { Observable, TestScheduler } from 'rxjs';
 
 import '../../src/rxjs5';
+import '../registerAngular';
 
 import * as angular from 'angular';
 
 function createScope() {
-  const injector = angular.injector(['ng']);
-  const $rootScope: ng.IRootScopeService = injector.get('$rootScope');
-  const $scope = $rootScope.$new();
+  const testApp = ngModule('ng');
+  let $scope: IScope;
+  let $rootScope: IRootScopeService;
+  inject((_$rootScope_: IRootScopeService) => {
+    $rootScope = _$rootScope_;
+    $scope = $rootScope.$new();
+  })
+
   return {$scope, $rootScope};
 }
 
 describe(`observeOnScope`, () => {
-  it('should not alter events', () => {
+  it('should work with empty', () => {
     const {$scope} = createScope();
+    const ts = new TestScheduler();
+
+    
+
+
     const event = {};
     const obs = Observable.of(event);
     let actual: any;
@@ -63,8 +71,6 @@ describe('$scope behaviour', () => {
   it('should throw when calling $apply in a digest loop', () => {
     const {$scope, $rootScope} = createScope();
     const shouldThrow = () => $scope.$apply();
-    let changesEverytime = 0;
-    $scope.$watch(() => changesEverytime++, shouldThrow);
-    expect(() => $rootScope.$apply()).to.throw();
+    expect(() => $rootScope.$apply(shouldThrow)).to.throw();
   });
 });
