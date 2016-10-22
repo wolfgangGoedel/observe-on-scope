@@ -2,37 +2,34 @@ import { IScope, IRootScopeService, ITimeoutService } from 'angular';
 import { expect } from 'chai';
 import { spy } from 'sinon';
 import { Observable, TestScheduler } from 'rxjs';
-
-import '../../src/rxjs5';
-import '../registerAngular';
-
-import * as angular from 'angular';
+import '../test/mocks';
+import './index';
 
 function createScope() {
-  const testApp = ngModule('ng');
   let $scope: IScope;
   let $rootScope: IRootScopeService;
   inject((_$rootScope_: IRootScopeService) => {
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
-  })
-
+  });
   return {$scope, $rootScope};
 }
 
 describe(`observeOnScope`, () => {
+
+  //mock.module.sharedInjector();
+  beforeEach(mock.module());
+
   it('should work with empty', () => {
     const {$scope} = createScope();
-    const ts = new TestScheduler();
-
-    
-
-
-    const event = {};
-    const obs = Observable.of(event);
-    let actual: any;
-    obs.observeOnScope($scope).subscribe(e => actual = e);
-    expect(actual === event).to.be.true;
+    const obs = Observable.empty();
+    let completed = false;
+    obs.observeOnScope($scope).subscribe(
+      _ => { throw 'must not next'; },
+      _ => { throw 'must not error'; },
+      () => completed = true
+    );
+    expect(completed).to.be.true;
   });
 
   it('should complete when scope is destroyed', () => {

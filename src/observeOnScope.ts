@@ -3,6 +3,7 @@ import { Operator } from 'rxjs/Operator';
 import { Subscriber } from 'rxjs/Subscriber';
 import { TeardownLogic } from 'rxjs/Subscription';
 import { IScope } from 'angular';
+import { safeApplyOnScope } from './safeApplyOnScope';
 
 
 export function observeOnScope<T>(this: Observable<T>, $scope: IScope): Observable<T> {
@@ -47,15 +48,5 @@ class ObserveOnScopeSubscriber<T> extends Subscriber<T> {
   protected _complete(): void {
     this._safeApply(() => this.destination.complete());
     this._unregister();
-  }
-}
-
-function safeApplyOnScope($scope: IScope) {
-  return (fn: () => void) => {
-    if ($scope.$$phase || ($scope.$root && $scope.$root.$$phase)) {
-      fn();
-    } else {
-      $scope.$apply(fn);
-    }
   }
 }
