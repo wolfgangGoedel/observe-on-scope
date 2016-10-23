@@ -1,8 +1,9 @@
 {
-  "name": "rx-angular1",
-  "version": "0.0.1",
-  "description": "utility lib for using RxJS with angular1",
-  "main": "index.js",
+  "name": "observe-on-scope",
+  "version": "0.1.0",
+  "description": "RxJS operator for using Observables with angularjs (1.x)",
+  "main": "dist/cjs/index.js",
+  "jsnext:main": "dist/es6/index.js",
   "scripts": {
     "prebuild": "rimraf ./dist",
     "build": "npm-run-all -p build:*",
@@ -11,11 +12,9 @@
     "test": "mocha --opts mocha.opts"
   },
   "keywords": [
-    "rx",
     "rxjs",
-    "ng1",
     "angular1",
-    "angular"
+    "angularjs"
   ],
   "author": "Wolfgang Goedel",
   "license": "MIT",
