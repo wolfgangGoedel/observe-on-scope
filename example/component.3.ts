@@ -1,5 +1,4 @@
 import * as ng from 'angular';
-import 'isomorphic-fetch';
 import { Observable, Subscription, Subject } from 'rxjs';
 
 interface IData {

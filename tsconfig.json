@@ -5,9 +5,14 @@
     "strictNullChecks": false,
     "outDir": "./dist",
     "pretty": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ],
     "types": [
       "mocha",
-      "node"
+      "node",
+      "whatwg-fetch"
     ]
   },
   "exclude": [
