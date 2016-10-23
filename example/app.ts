@@ -4,4 +4,4 @@ import registerMyComponent from './component';
 const appModule = ng.module('app', []);
 registerMyComponent(appModule);
 
-export default appModule;
+ng.bootstrap(document, ['app']);

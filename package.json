@@ -9,7 +9,9 @@
     "build": "npm-run-all -p build:*",
     "build:es6": "tsc -p src/ -m es6 -t es6 --outDir ./dist/es6",
     "build:cjs": "tsc -p src/ -m commonjs -t es5 --outDir ./dist/cjs",
-    "test": "mocha --opts mocha.opts"
+    "test": "mocha --opts mocha.opts",
+    "build-example": "webpack --config ./example/webpack.config.js",
+    "start-example": "webpack-dev-server --config ./example/webpack.config.js"
   },
   "keywords": [
     "rxjs",
@@ -29,15 +31,22 @@
     "angular": "^1.5.8",
     "angular-mocks": "^1.5.8",
     "chai": "^3.5.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.24.0",
     "jsdom": "^9.6.0",
     "jsdom-global": "^2.1.0",
     "mocha": "^3.1.0",
     "npm-run-all": "^3.1.1",
+    "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "rxjs": "^5.0.0-rc.1",
     "sinon": "^1.17.6",
+    "ts-loader": "^0.9.5",
     "ts-node": "^1.4.1",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.3",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
   },
   "peerDependencies": {
     "angular": "^1.5.8",
